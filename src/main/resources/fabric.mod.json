@@ -1,33 +1,32 @@
 {
   "schemaVersion": 1,
-  "id": "cursed_table",
+  "id": "cursed_table_revamped",
   "version": "${version}",
 
-  "name": "Cursed table",
-  "description": "Tired of having to deal with villagers only to get a mending book for 64 emeralds? This mod solves it! You can find any enchantment on the table now that wasn't available before, including curses...",
+  "name": "Cursed table Revamped",
+  "description": "Allows full customization of available enchants in the enchanting table, via gamerules.",
   "authors": [
-    "ByMartrixx"
+    "amot-dev"
   ],
   "contact": {
-    "sources": "https://github.com/ByMartrixx/cursed-table",
-    "issues": "https://github.com/ByMartrixx/cursed-table/issues"
+    "sources": "https://github.com/amot-dev/cursed-table-revamped",
+    "issues": "https://github.com/amot-dev/cursed-table-revamped/issues"
   },
 
   "license": "MIT",
-  "icon": "assets/cursed_table/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.bymartrixx.cursed.table.CursedTable"
+      "dev.amot.cursedtablerevamped.CursedTableRevamped"
     ]
   },
   "mixins": [
-    "cursed_table.mixins.json"
+    "cursedtablerevamped.mixins.json"
   ],
 
   "depends": {
-    "fabricloader": ">=0.7.4",
-    "minecraft": "1.16.x"
+    "fabricloader": ">=0.15.6",
+    "minecraft": "1.20.x"
   }
 }

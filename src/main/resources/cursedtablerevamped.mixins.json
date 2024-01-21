@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.amot.cursedtablerevamped.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "EnchantingTableBlockMixin",
+    "EnchantmentHelperMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

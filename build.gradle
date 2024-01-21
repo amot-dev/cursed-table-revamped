@@ -1,81 +1,75 @@
 plugins {
-	id 'fabric-loom' version '0.4-SNAPSHOT'
+	id 'fabric-loom' version '1.5-SNAPSHOT'
 	id 'maven-publish'
-	id 'com.jfrog.bintray' version '1.8.5'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
-
-archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+base {
+	archivesName = project.archives_base_name
+}
+
+repositories {
+	// Add repositories to retrieve artifacts from in here.
+	// You should only use this when depending on other mods because
+	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
+	// for more information about repositories.
+}
+
+loom {
+    splitEnvironmentSourceSets()
+
+	mods {
+		"modid" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+
+}
+
 dependencies {
-	//to change the versions see the gradle.properties file
+	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	
+	// Uncomment the following line to enable the deprecated Fabric API modules. 
+	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
 
-	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
-	// You may need to force-disable transitiveness on them.
+	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 }
 
 processResources {
 	inputs.property "version", project.version
 
-	from(sourceSets.main.resources.srcDirs) {
-		include "fabric.mod.json"
+	filesMatching("fabric.mod.json") {
 		expand "version": project.version
 	}
-
-	from(sourceSets.main.resources.srcDirs) {
-		exclude "fabric.mod.json"
-	}
 }
 
-// ensure that the encoding is set to UTF-8, no matter what the system default is
-// this fixes some edge cases with special characters not displaying correctly
-// see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
-tasks.withType(JavaCompile) {
-	options.encoding = "UTF-8"
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 17
 }
 
-// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-// if it is present.
-// If you remove this task, sources will not be generated.
-task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = "sources"
-	from sourceSets.main.allSource
+java {
+	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+	// if it is present.
+	// If you remove this line, sources will not be generated.
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {
-	from "LICENSE"
-}
-
-bintray {
-	user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
-	key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_KEY')
-	publications = ["mavenJava"]
-	publish = true
-	pkg {
-		repo = 'maven'
-		name = 'cursed-table'
-		licenses = ['MIT']
-		vcsUrl = 'https://github.com/ByMartrixx/cursed-table'
-		version {
-			released = new Date()
-			githubRepo = 'ByMartrixx/wdmcf'
-			websiteUrl = 'https://www.curseforge.com/minecraft/mc-mods/cursed-table'
-			issueTrackerUrl = 'https://github.com/ByMartrixx/cursed-table/issues'
-			vcsUrl = 'https://github.com/ByMartrixx/cursed-table'
-			gpg {
-				sign = true
-			}
-		}
+	from("LICENSE") {
+		rename { "${it}_${project.base.archivesName.get()}"}
 	}
 }
 
@@ -83,27 +77,15 @@ bintray {
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
-			// add all the jars that should be included when publishing to maven
-			artifact(remapJar) {
-				builtBy remapJar
-			}
-			artifact(sourcesJar) {
-				builtBy remapSourcesJar
-			}
-			pom.withXml {
-				def root = asNode()
-				root.appendNode('description', 'Tired of having to deal with villagers only to get a mending book for 64 emeralds? This mod solves it! You can find any enchantment on the table now that wasn\'t available before, including curses...')
-				root.appendNode('name', 'Cursed Table')
-				root.appendNode('url', 'https://www.curseforge.com/minecraft/mc-mods/cursed-table')
-				groupId("${project.maven_group}")
-				artifactId 'cursed-table'
-			}
+			from components.java
 		}
 	}
 
-	// select the repositories you want to publish to
+	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
 	repositories {
-		// uncomment to publish to the local maven
-		// mavenLocal()
+		// Add repositories to publish to here.
+		// Notice: This block does NOT have the same function as the block in the top level.
+		// The repositories here will be used for publishing your artifact, not for
+		// retrieving dependencies.
 	}
 }

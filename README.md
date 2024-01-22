@@ -2,7 +2,7 @@
 ![Cursed Table Revamped Version](https://img.shields.io/github/v/release/amot-dev/cursed-table-revamped?include_prereleases)
 ![Minecraft Version](https://img.shields.io/badge/Minecraft-1.20.4-blue)
 ![FabricMC Version](https://img.shields.io/badge/FabricMC-0.95.0%2B1.20.4-blue)
-# Cursed Table Revamped
+# Cursed Table Revamped <img src="src/main/resources/assets/cursedtablerevamped/icon.png" width="32">
 ## About
 Ever felt like the curse enchantments were kind of useful? Nobody who finds a "Curse of Binding" piece of armour in the
 wild thinks "Yes, that's perfect!" and puts it on. Now, you can get these curses right in the enchanting table (and they
@@ -12,8 +12,15 @@ But... I couldn't resist adding a bit of customization. So, while by default, cu
 "treasure" enchants aren't, everything is customizable with game rules. Maybe you want Frost Walker available, but think
 Swift Sneak is too much? Well, configure to your heart's content!
 
+## Screenshots
+![Swift Sneak](src/main/resources/assets/cursedtablerevamped/screenshots/swift_sneak.png)
+![Swift Sneak Applied](src/main/resources/assets/cursedtablerevamped/screenshots/swift_sneak_applied.png)
+![Curse of Binding](src/main/resources/assets/cursedtablerevamped/screenshots/curse_of_binding.png)
+![Curse of Binding Applied](src/main/resources/assets/cursedtablerevamped/screenshots/curse_of_binding_applied.png)
+
 ## Downloads
-Available on GitHub. Will soon be available on Modrinth and Curseforge.
+Available on [GitHub](https://github.com/amot-dev/cursed-table-revamped/releases) and [Modrinth](https://modrinth.com/mod/cursed-table-revamped).
+Will soon be available on Curseforge.
 
 ## Installation
 - Install Fabric for the desired Minecraft version

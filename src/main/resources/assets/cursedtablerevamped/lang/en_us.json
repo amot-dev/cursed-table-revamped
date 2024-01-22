@@ -1,0 +1,8 @@
+{
+  "gamerule.enableEnchantBindingCurse": "Allows Curse of Binding to appear in the Enchanting Table",
+  "gamerule.enableEnchantFrostWalker": "Allows Frost Walker to appear in the Enchanting Table",
+  "gamerule.enableEnchantMending": "Allows Mending to appear in the Enchanting Table",
+  "gamerule.enableEnchantSoulSpeed": "Allows Soul Speed to appear in the Enchanting Table",
+  "gamerule.enableEnchantSwiftSneak": "Allows Swift Sneak to appear in the Enchanting Table",
+  "gamerule.enableEnchantVanishingCurse": "Allows Curse of Vanishing to appear in the Enchanting Table"
+}

@@ -1,6 +1,5 @@
 package dev.amot.cursedtablerevamped.mixin;
 
-import dev.amot.cursedtablerevamped.CursedTableRevamped;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -34,9 +33,12 @@ public class EnchantmentHelperMixin {
             }
         }
         // TODO debug wtf is going on with missing enchants
+        /*
+        CursedTableRevamped.LOGGER.info("New List:");
         for (EnchantmentLevelEntry enchantmentLevelEntry : list) {
-            CursedTableRevamped.LOGGER.info(enchantmentLevelEntry.enchantment.toString() + " " + enchantmentLevelEntry.level);
+            CursedTableRevamped.LOGGER.info(enchantmentLevelEntry.enchantment.getName(enchantmentLevelEntry.level).toString());
         }
+        */
         cir.setReturnValue(list);
     }
 }

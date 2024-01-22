@@ -21,18 +21,18 @@ public class CursedTableRevampedGameRules {
     public static Map<Enchantment, Boolean> enabledEnchants = new HashMap<>();
 
     public static void init() {
-        ENABLE_ENCHANT_BINDING_CURSE = GameRuleRegistry.register("enableEnchantCurseOfBinding", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
-        ENABLE_ENCHANT_VANISHING_CURSE = GameRuleRegistry.register("enableEnchantCurseOfVanishing", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
-        ENABLE_ENCHANT_FROST_WALKER = GameRuleRegistry.register("enableEnchantFrostWalker", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
-        ENABLE_ENCHANT_MENDING = GameRuleRegistry.register("enableEnchantMending", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
-        ENABLE_ENCHANT_SOUL_SPEED = GameRuleRegistry.register("enableEnchantSoulSpeed", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
+        ENABLE_ENCHANT_BINDING_CURSE = GameRuleRegistry.register("enableEnchantBindingCurse", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
+        ENABLE_ENCHANT_FROST_WALKER = GameRuleRegistry.register("enableEnchantFrostWalker", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false));
+        ENABLE_ENCHANT_MENDING = GameRuleRegistry.register("enableEnchantMending", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false));
+        ENABLE_ENCHANT_SOUL_SPEED = GameRuleRegistry.register("enableEnchantSoulSpeed", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false));
         ENABLE_ENCHANT_SWIFT_SNEAK = GameRuleRegistry.register("enableEnchantSwiftSneak", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
+        ENABLE_ENCHANT_VANISHING_CURSE = GameRuleRegistry.register("enableEnchantVanishingCurse", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false));
 
         enabledEnchants.put(Enchantments.BINDING_CURSE, true);
-        enabledEnchants.put(Enchantments.FROST_WALKER, true);
-        enabledEnchants.put(Enchantments.MENDING, true);
-        enabledEnchants.put(Enchantments.SOUL_SPEED, true);
-        enabledEnchants.put(Enchantments.SWIFT_SNEAK, true);
+        enabledEnchants.put(Enchantments.FROST_WALKER, false);
+        enabledEnchants.put(Enchantments.MENDING, false);
+        enabledEnchants.put(Enchantments.SOUL_SPEED, false);
+        enabledEnchants.put(Enchantments.SWIFT_SNEAK, false);
         enabledEnchants.put(Enchantments.VANISHING_CURSE, true);
     }
 }

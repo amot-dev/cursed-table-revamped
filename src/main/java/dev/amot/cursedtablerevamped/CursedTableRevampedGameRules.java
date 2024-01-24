@@ -25,8 +25,8 @@ public class CursedTableRevampedGameRules {
         ENABLE_ENCHANT_FROST_WALKER = GameRuleRegistry.register("enableEnchantFrostWalker", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false));
         ENABLE_ENCHANT_MENDING = GameRuleRegistry.register("enableEnchantMending", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false));
         ENABLE_ENCHANT_SOUL_SPEED = GameRuleRegistry.register("enableEnchantSoulSpeed", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false));
-        ENABLE_ENCHANT_SWIFT_SNEAK = GameRuleRegistry.register("enableEnchantSwiftSneak", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
-        ENABLE_ENCHANT_VANISHING_CURSE = GameRuleRegistry.register("enableEnchantVanishingCurse", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false));
+        ENABLE_ENCHANT_SWIFT_SNEAK = GameRuleRegistry.register("enableEnchantSwiftSneak", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false));
+        ENABLE_ENCHANT_VANISHING_CURSE = GameRuleRegistry.register("enableEnchantVanishingCurse", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
 
         enabledEnchants.put(Enchantments.BINDING_CURSE, true);
         enabledEnchants.put(Enchantments.FROST_WALKER, false);

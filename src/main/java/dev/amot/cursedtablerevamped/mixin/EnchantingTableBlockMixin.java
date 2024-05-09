@@ -24,7 +24,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class EnchantingTableBlockMixin {
 
     @Inject(method = "onUse", at = @At(value = "RETURN"))
-    private void updateFromInternalGameRules(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
+    private void updateFromInternalGameRules(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
         if (world instanceof ServerWorld serverWorld) {
             // Updating internal variables based on game rules
             CursedTableRevampedGameRules.enabledEnchants.put(Enchantments.BINDING_CURSE, serverWorld.getGameRules().getBoolean(CursedTableRevampedGameRules.ENABLE_ENCHANT_BINDING_CURSE));
@@ -35,5 +35,4 @@ public abstract class EnchantingTableBlockMixin {
             CursedTableRevampedGameRules.enabledEnchants.put(Enchantments.VANISHING_CURSE, serverWorld.getGameRules().getBoolean(CursedTableRevampedGameRules.ENABLE_ENCHANT_VANISHING_CURSE));
         }
     }
-
 }

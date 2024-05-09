@@ -4,6 +4,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.item.ItemStack;
+import net.minecraft.resource.featuretoggle.FeatureSet;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -18,7 +19,7 @@ import static dev.amot.cursedtablerevamped.CursedTableRevampedGameRules.enabledE
 @Mixin(EnchantmentHelper.class)
 public class EnchantmentHelperMixin {
     @Inject(method = "getPossibleEntries", at = @At(value = "RETURN"), cancellable = true)
-    private static void addGameruleEnchants(int power, ItemStack stack, boolean treasureAllowed, CallbackInfoReturnable<List<EnchantmentLevelEntry>> cir) {
+    private static void addGameruleEnchants(FeatureSet enabledFeatures, int level, ItemStack stack, boolean treasureAllowed, CallbackInfoReturnable<List<EnchantmentLevelEntry>> cir) {
         List<EnchantmentLevelEntry> list = cir.getReturnValue();
         // Go through all possible enchantments to add
         for (Map.Entry<Enchantment,Boolean> enabledEnchant : enabledEnchants.entrySet()) {
@@ -26,19 +27,14 @@ public class EnchantmentHelperMixin {
             if (enabledEnchant.getValue()) {
                 // Add enchantment (and all its levels) to possible entries
                 Enchantment enchantment = enabledEnchant.getKey();
-                for (int i = enchantment.getMaxLevel(); i > enchantment.getMinLevel() - 1; --i) {
-                    if (power < enchantment.getMinPower(i) || power > enchantment.getMaxPower(i)) continue;
-                    list.add(new EnchantmentLevelEntry(enchantment, i));
+                for(int i = enchantment.getMaxLevel(); i > enchantment.getMinLevel() - 1; --i) {
+                    if (level >= enchantment.getMinPower(i) && level <= enchantment.getMaxPower(i)) {
+                        list.add(new EnchantmentLevelEntry(enchantment, i));
+                        break;
+                    }
                 }
             }
         }
-        // TODO debug wtf is going on with missing enchants
-        /*
-        CursedTableRevamped.LOGGER.info("New List:");
-        for (EnchantmentLevelEntry enchantmentLevelEntry : list) {
-            CursedTableRevamped.LOGGER.info(enchantmentLevelEntry.enchantment.getName(enchantmentLevelEntry.level).toString());
-        }
-        */
         cir.setReturnValue(list);
     }
 }

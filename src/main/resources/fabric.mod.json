@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "cursed_table_revamped",
+  "id": "cursedtablerevamped",
   "version": "${version}",
 
   "name": "Cursed table Revamped",
@@ -27,7 +27,7 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.15.6",
-    "minecraft": "1.20.x"
+    "fabricloader": ">=0.15.11",
+    "minecraft": "1.21"
   }
 }

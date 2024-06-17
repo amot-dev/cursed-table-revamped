@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Cursed Table Revamped Version](https://img.shields.io/github/v/release/amot-dev/cursed-table-revamped?include_prereleases)
-![Minecraft Version](https://img.shields.io/badge/Minecraft-1.20.6-blue)
-![FabricMC Version](https://img.shields.io/badge/FabricMC-0.98.0%2B1.20.6-blue)
+![Minecraft Version](https://img.shields.io/badge/Minecraft-1.21-blue)
+![FabricMC Version](https://img.shields.io/badge/FabricMC-0.100.1%2B1.21-blue)
 # Cursed Table Revamped <img src="src/main/resources/assets/cursedtablerevamped/icon.png" width="32">
 ## About
 Ever felt like the curse enchantments were kind of useful? Nobody who finds a "Curse of Binding" piece of armour in the

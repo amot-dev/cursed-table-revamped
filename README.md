@@ -4,7 +4,7 @@
 ![FabricMC Version](https://img.shields.io/badge/FabricMC-0.100.1%2B1.21-blue)
 # Cursed Table Revamped <img src="src/main/resources/assets/cursedtablerevamped/icon.png" width="32">
 ## About
-Ever felt like the curse enchantments were kind of useful? Nobody who finds a "Curse of Binding" piece of armour in the
+Ever felt like the curse enchantments were kind of useless? Nobody who finds a "Curse of Binding" piece of armour in the
 wild thinks "Yes, that's perfect!" and puts it on. Now, you can get these curses right in the enchanting table (and they
 could even be hidden). Now, there actually is a tradeoff to using the table.
 

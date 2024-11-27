@@ -25,7 +25,7 @@ public abstract class EnchantingTableBlockMixin {
     @Inject(method = "onUse", at = @At(value = "RETURN"))
     private void updateFromInternalGameRules(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
         if (world instanceof ServerWorld serverWorld) {
-            Registry<Enchantment> enchantmentRegistry = world.getRegistryManager().get(RegistryKeys.ENCHANTMENT);
+            Registry<Enchantment> enchantmentRegistry = world.getRegistryManager().getOrThrow(RegistryKeys.ENCHANTMENT);
             GameRules gameRules = serverWorld.getGameRules();
             // Update/set internal variables based on game rules
             CursedTableRevampedGameRules.enabledEnchants.put(

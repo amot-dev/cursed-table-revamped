@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.8-SNAPSHOT'
+	id 'fabric-loom' version '1.8-SNAPSHOT' // Downgrade temporarily to 1.7-SNAPSHOT to migrate mappings (allows overwriting src/main/java)
 	id 'maven-publish'
 }
 

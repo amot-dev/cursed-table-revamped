@@ -16,6 +16,7 @@ public class CursedTableRevampedGameRules {
     public static GameRules.Key<GameRules.BooleanRule> ENABLE_ENCHANT_SOUL_SPEED;
     public static GameRules.Key<GameRules.BooleanRule> ENABLE_ENCHANT_SWIFT_SNEAK;
     public static GameRules.Key<GameRules.BooleanRule> ENABLE_ENCHANT_VANISHING_CURSE;
+    public static GameRules.Key<GameRules.BooleanRule> ENABLE_ENCHANT_WIND_BURST;
 
     // Game rules for internal access
     public static Map<RegistryEntry<Enchantment>, Boolean> enabledEnchants = new HashMap<>();
@@ -27,5 +28,6 @@ public class CursedTableRevampedGameRules {
         ENABLE_ENCHANT_SOUL_SPEED = GameRuleRegistry.register("enableEnchantSoulSpeed", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false));
         ENABLE_ENCHANT_SWIFT_SNEAK = GameRuleRegistry.register("enableEnchantSwiftSneak", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false));
         ENABLE_ENCHANT_VANISHING_CURSE = GameRuleRegistry.register("enableEnchantVanishingCurse", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
+        ENABLE_ENCHANT_WIND_BURST = GameRuleRegistry.register("enableEnchantWindBurst", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false));
     }
 }

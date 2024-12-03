@@ -26,3 +26,6 @@ Will soon be available on Curseforge.
 - Install Fabric for the desired Minecraft version
 - Install the latest Fabric API version
 - Copy the cursed-table-revamped jar file into `.minecraft/mods`
+
+## Backport Requests
+If you would like a new feature to be backported to an older version, please submit an issue and I will address it if possible.

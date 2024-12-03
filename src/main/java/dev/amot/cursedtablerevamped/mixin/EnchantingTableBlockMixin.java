@@ -52,6 +52,10 @@ public abstract class EnchantingTableBlockMixin {
                     enchantmentRegistry.getEntry(enchantmentRegistry.get(Enchantments.VANISHING_CURSE)),
                     gameRules.getBoolean(CursedTableRevampedGameRules.ENABLE_ENCHANT_VANISHING_CURSE)
             );
+            CursedTableRevampedGameRules.enabledEnchants.put(
+                    enchantmentRegistry.getEntry(enchantmentRegistry.get(Enchantments.WIND_BURST)),
+                    gameRules.getBoolean(CursedTableRevampedGameRules.ENABLE_ENCHANT_WIND_BURST)
+            );
         }
     }
 }
